@@ -35,6 +35,9 @@ function currentHour() {
     let now = new Date();
     let hour = now.getHours();
     //console.log(hour);
+    if (hour > 12){
+        hour = hour - 12;
+    }
     return hour;
 }
 
@@ -51,6 +54,7 @@ function showTime(hour, minute, second){
     }
     //ctx.rotate(90 * Math.PI/180);
     dtx.clearRect(0, 0, 400, 400);
+    dtx.fillStyle = "#91491C";
     dtx.fillText(hour + ":" + minute + ":" + second, 135, 200);
 }
 
@@ -62,7 +66,7 @@ function drawClock() {
     ctx.beginPath();
     ctx.moveTo(radius * 0.5 ,0);
     ctx.arc(0, 0, radius * 0.5, 0, ((2 * (second/60)) * Math.PI));
-    ctx.strokeStyle = "white";
+    ctx.strokeStyle = "#57DADE";
     ctx.lineWidth = 5;
     ctx.stroke();
 
@@ -71,7 +75,7 @@ function drawClock() {
     ctx.beginPath();
     ctx.moveTo(radius * 0.6, 0);
     ctx.arc(0, 0, radius * 0.6, 0, ((2 * (minute/60)) * Math.PI));
-    ctx.strokeStyle = "black";
+    ctx.strokeStyle = "#7DFBFF";
     ctx.lineWidth = 15;
     ctx.stroke();
 
@@ -80,7 +84,7 @@ function drawClock() {
     ctx.beginPath();
     ctx.moveTo(radius * 0.75, 0);
     ctx.arc(0, 0, radius * 0.75, 0, ((2 * (hour/12)) * Math.PI));
-    ctx.strokeStyle = "red";
+    ctx.strokeStyle = "#2A8E91";
     ctx.lineWidth = 20;
     ctx.stroke();
 
